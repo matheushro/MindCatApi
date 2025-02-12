@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DiaryController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,4 +23,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [AuthController::class, 'userProfile']);
     Route::put('/user/update', [UserController::class, 'update']);
     Route::delete('/user/delete', [UserController::class, 'destroy']);
+    Route::post('/diary', [DiaryController::class, 'store']); 
+    Route::get('/diary', [DiaryController::class, 'index']); 
+    Route::delete('/diary/{id}', [DiaryController::class, 'destroy']);
 });
